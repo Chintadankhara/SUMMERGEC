@@ -1,0 +1,16 @@
+<h1 class="m-3">Hello from GEC Bhavnagar</h1>
+
+
+<button class="btn btn-dark m-3" type="button">Click</button>
+
+<div *ngIf="visibility">
+  <p class="m-3 font-bold">This is a toggleable content!</p>
+</div>
+
+<ul class="m-3">
+  <li *ngFor="let item of items">
+    {{item}}
+  </li>
+</ul>
+
+<input type="text" class="m-3 form-control w-25" value="{{store}}" ngModel="store" />
