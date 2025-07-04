@@ -8,15 +8,17 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.css'
 })
 export class App {
+clickher() {
+throw new Error('Method not implemented.');
+}
   protected title = 'GEC';
   visibility = true;
 
   items = ['Item 1', 'Item 2', 'Item 3'];
   store: any;
-   
+
 
   listener() {
-    this.visibility = !this.visibility;
     console.log(this.visibility);
   }
 }
