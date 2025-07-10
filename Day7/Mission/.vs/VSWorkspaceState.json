@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Mission.Api"
   ],
+  "SelectedNode": "\\Mission.Api\\Mission.Api.csproj",
   "PreviewInSolutionExplorer": false
 }

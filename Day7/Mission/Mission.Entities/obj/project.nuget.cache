@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cLuC7CVKoac=",
+  "dgSpecHash": "k0wIbds2MjA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day6\\Mission\\Mission.Entities\\Mission.Entities.csproj",
+  "projectFilePath": "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day7\\Mission\\Mission.Entities\\Mission.Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ZeeGadgets\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.15\\microsoft.entityframeworkcore.8.0.15.nupkg.sha512",
     "C:\\Users\\ZeeGadgets\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.15\\microsoft.entityframeworkcore.abstractions.8.0.15.nupkg.sha512",

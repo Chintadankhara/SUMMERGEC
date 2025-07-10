@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fkNc++zOImU=",
+  "dgSpecHash": "98Lz/I645a8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day6\\Mission\\Mission.Api\\Mission.Api.csproj",
+  "projectFilePath": "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day7\\Mission\\Mission.Api\\Mission.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ZeeGadgets\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ZeeGadgets\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.15\\microsoft.aspnetcore.authentication.jwtbearer.8.0.15.nupkg.sha512",

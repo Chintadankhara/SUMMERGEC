@@ -739,11 +739,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day6\\Mission\\Mission.Repositories\\Mission.Repositories.csproj",
+      "projectUniqueName": "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day7\\Mission\\Mission.Repositories\\Mission.Repositories.csproj",
       "projectName": "Mission.Repositories",
-      "projectPath": "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day6\\Mission\\Mission.Repositories\\Mission.Repositories.csproj",
+      "projectPath": "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day7\\Mission\\Mission.Repositories\\Mission.Repositories.csproj",
       "packagesPath": "C:\\Users\\ZeeGadgets\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day6\\Mission\\Mission.Repositories\\obj\\",
+      "outputPath": "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day7\\Mission\\Mission.Repositories\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ZeeGadgets\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -758,8 +758,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day6\\Mission\\Mission.Entities\\Mission.Entities.csproj": {
-              "projectPath": "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day6\\Mission\\Mission.Entities\\Mission.Entities.csproj"
+            "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day7\\Mission\\Mission.Entities\\Mission.Entities.csproj": {
+              "projectPath": "C:\\Users\\ZeeGadgets\\3D Objects\\Desktop\\summer\\Day7\\Mission\\Mission.Entities\\Mission.Entities.csproj"
             }
           }
         }
