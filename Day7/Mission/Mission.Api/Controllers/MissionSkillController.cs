@@ -7,93 +7,118 @@ namespace Mission.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MissionSkillController(IMissionSkillService missionSkillService) : ControllerBase
+    public class MissionSkillController : ControllerBase
     {
-        private readonly IMissionSkillService _missionSkillService = missionSkillService;
+        private readonly IMissionSkillService _missionSkillService;
 
-        [HttpPost]
-        [Route("AddMissionSkill")]
-        public async Task<IActionResult> AddMissionSkill(UpsertMissionSkillRequestModel model)
+        public MissionSkillController(IMissionSkillService missionSkillService)
         {
-            await _missionSkillService.AddMissionSkillAsync(model);
-
-            var result = new ResponseResult() { Result = ResponseStatus.Success, Message = "New Mission Skill Added Sucessfully" };
-
-            return Ok(result);
+            _missionSkillService = missionSkillService;
         }
 
-        [HttpGet]
-        [Route("GetMissionSkillList")]
+        [HttpPost("AddMissionSkill")]
+        public async Task<IActionResult> AddMissionSkill([FromBody] UpsertMissionSkillRequestModel model)
+        {
+            if (model == null || string.IsNullOrWhiteSpace(model.SkillName))
+            {
+                return BadRequest(new ResponseResult
+                {
+                    Result = ResponseStatus.Error,
+                    Message = "Invalid data. Skill name is required."
+                });
+            }
+
+            await _missionSkillService.AddMissionSkillAsync(model);
+
+            return Ok(new ResponseResult
+            {
+                Result = ResponseStatus.Success,
+                Message = "New Mission Skill added successfully."
+            });
+        }
+
+        [HttpGet("GetMissionSkillList")]
         public async Task<IActionResult> GetMissionSkillList()
         {
             var response = await _missionSkillService.GetMissionSkillListAsync();
 
-            var result = new ResponseResult() { Data = response, Result = ResponseStatus.Success };
-
-            return Ok(result);
+            return Ok(new ResponseResult
+            {
+                Data = response,
+                Result = ResponseStatus.Success
+            });
         }
 
-        [HttpGet]
-        [Route("GetMissionSkillById/{id:int}")]
+        [HttpGet("GetMissionSkillById/{id:int}")]
         public async Task<IActionResult> GetMissionSkillById(int id)
         {
             var response = await _missionSkillService.GetMissionSkillByIdAsync(id);
 
-            var result = new ResponseResult();
-
             if (response == null)
             {
-                result.Result = ResponseStatus.Error;
-                result.Message = "Mission Skill Record Not Found";
-                return NotFound(result);
+                return NotFound(new ResponseResult
+                {
+                    Result = ResponseStatus.Error,
+                    Message = "Mission Skill record not found."
+                });
             }
 
-            result.Result = ResponseStatus.Success;
-            result.Data = response;
-
-            return Ok(result);
+            return Ok(new ResponseResult
+            {
+                Result = ResponseStatus.Success,
+                Data = response
+            });
         }
 
-        [HttpPost]
-        [Route("UpdateMissionSkill")]
-        public async Task<IActionResult> UpdateMissionSkill(UpsertMissionSkillRequestModel model)
+        [HttpPost("UpdateMissionSkill")]
+        public async Task<IActionResult> UpdateMissionSkill([FromBody] UpsertMissionSkillRequestModel model)
         {
-            var response = await _missionSkillService.UpdateMissionSkillAsync(model);
-
-            var result = new ResponseResult();
-
-            if (response)
+            if (model == null || model.Id <= 0 || string.IsNullOrWhiteSpace(model.SkillName))
             {
-                result.Result = ResponseStatus.Success;
-                return Ok(result);
+                return BadRequest(new ResponseResult
+                {
+                    Result = ResponseStatus.Error,
+                    Message = "Invalid data. ID and Skill name are required."
+                });
             }
-            else
+
+            var updated = await _missionSkillService.UpdateMissionSkillAsync(model);
+
+            if (!updated)
             {
-                result.Result = ResponseStatus.Error;
-                result.Message = "Mission Skill Record Not Found";
-                return NotFound(result);
+                return NotFound(new ResponseResult
+                {
+                    Result = ResponseStatus.Error,
+                    Message = "Mission Skill record not found."
+                });
             }
+
+            return Ok(new ResponseResult
+            {
+                Result = ResponseStatus.Success,
+                Message = "Mission Skill updated successfully."
+            });
         }
 
-        [HttpDelete]
-        [Route("DeleteMissionSkill/{id:int}")]
-        public async Task<IActionResult> DeleteMissionSkill(int id) 
+        [HttpDelete("DeleteMissionSkill/{id:int}")]
+        public async Task<IActionResult> DeleteMissionSkill(int id)
         {
-            var response = await _missionSkillService.DeleteMissionSkill(id);
+            var deleted = await _missionSkillService.DeleteMissionSkill(id);
 
-            var result = new ResponseResult();
+            if (!deleted)
+            {
+                return NotFound(new ResponseResult
+                {
+                    Result = ResponseStatus.Error,
+                    Message = "Mission Skill record not found."
+                });
+            }
 
-            if (response)
+            return Ok(new ResponseResult
             {
-                result.Result = ResponseStatus.Success;
-                return Ok(result);
-            }
-            else
-            {
-                result.Result = ResponseStatus.Error;
-                result.Message = "Mission Skill Record Not Found";
-                return NotFound(result);
-            }
+                Result = ResponseStatus.Success,
+                Message = "Mission Skill deleted successfully."
+            });
         }
     }
 }
